@@ -1,0 +1,104 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx} % Required for inserting images
+
+% If hyperref is used, dvi-to-ps driver of choice must be declared as
+%   an additional option to the \documentclass. For example
+%\documentclass[dvips,isre]{informs3}      % if dvips is used
+%\documentclass[dvipsone,isre]{informs3}   % if dvipsone is used, etc.
+
+% Private macros here (check that there is no clash with the style)
+\usepackage{hyperref}
+\usepackage{xurl}
+% Natbib setup for author-year style
+\usepackage{natbib}
+ \bibpunct[, ]{(}{)}{,}{a}{}{,}%
+ \def\bibfont{\small}%
+ \def\bibsep{\smallskipamount}%
+ \def\bibhang{24pt}%
+ \def\newblock{\ }%
+ \def\BIBand{and}%
+ 
+\usepackage{lmodern}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[export]{adjustbox}
+\usepackage{ifxetex,ifluatex}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\newcolumntype{d}{S[
+    input-open-uncertainty=,
+    input-close-uncertainty=,
+    parse-numbers = false,
+    table-align-text-pre=false,
+    table-align-text-post=false
+ ]}
+
+\setlength{\tabcolsep}{3pt}
+
+\usepackage{multirow}
+\usepackage{pdflscape}
+\usepackage{tikz}
+\usepackage[papersize={8.5in,11in}, margin=1in]{geometry}
+\newtheorem{hyp}{Hypothesis}
+\newtheorem{subhyp}{Hypothesis}[hyp]
+\renewcommand\thesubhyp{\thehyp\alph{subhyp}}
+
+\usepackage{titlesec}
+
+
+% \titlespacing\section{0pt}{3pt plus 2pt minus 2pt}{3pt plus 2pt minus 2pt}
+% \titlespacing\subsection{0pt}{3pt plus 2pt minus 2pt}{3pt plus 2pt minus 2pt}
+% \titlespacing\subsubsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+% \titleformat{\section}
+%   {\normalfont\fontsize{14}{12}\bfseries}{\thesection}{1em}{}
+% \titleformat{\subsection}
+%   {\normalfont\fontsize{13}{12}\bfseries}{\thesubsection}{1em}{}
+
+\usepackage{mathspec}
+
+\usepackage{etoolbox}
+
+\AtBeginEnvironment{tabular}{\small}
+
+\usepackage{titling}
+\setlength{\droptitle}{-1in}
+\title{Paper Title}
+
+\author{Zenan Chen}
+% \author{Student Paper}
+\date{\vspace{-3em}}
+
+\usepackage{mathspec} %loads fontspec as well
+% Check to see if this font is installed system-wide
+\IfFontExistsTF{Palatino}{%
+% One person has this installed system-wide
+  \setmainfont{Palatino}
+  \setmathfont(Digits,Latin){Palatino}
+}{
+% If not,
+  \setmainfont{TeX Gyre Pagella}
+  \setmathfont(Digits,Latin){TeX Gyre Pagella}
+}
+
+
+\begin{document}
+\doublespacing
+
+\maketitle
+
+\begin{abstract}
+  Abstract
+\end{abstract}
+
+\input{sections/introduction}
+\input{sections/lit_review}
+\input{sections/hypotheses}
+\input{sections/experiment}
+\input{sections/results}
+\input{sections/discussion}
+
+\bibliographystyle{apalike.bst}
+\bibliography{zotero.bib}
+\end{document}
